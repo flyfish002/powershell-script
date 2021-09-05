@@ -1,0 +1,6 @@
+cd   '.\Program Files\'
+cd  .\OpenSSH\
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
+sc.exe  config sshd start= auto
+net start sshd
